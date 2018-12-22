@@ -71,13 +71,13 @@ class App extends React.Component {
       // When "B" is pressed, add a "bold" mark to the text.
       case 'b': {
         event.preventDefault()
-        editor.addMark('bold')
+        return editor.addMark('bold')
       }
       // When "`" is pressed, keep our existing code block logic.
       case '`': {
         const isCode = editor.value.blocks.some(block => block.type == 'code')
         event.preventDefault()
-        editor.setBlocks(isCode ? 'paragraph' : 'code')
+        return editor.setBlocks(isCode ? 'paragraph' : 'code')
       }
       // Otherwise, let other plugins handle it.
       default: {
